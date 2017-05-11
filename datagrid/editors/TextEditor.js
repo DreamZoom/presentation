@@ -1,14 +1,8 @@
 import React from 'react';
 import Editor from '../editor.js';
 class TextEditor extends Editor {
-
-	componentDidMount() {
-		
-		
-	}
-
-	render() {
- 		return (<span>sss</span>);
+	renderEditor() {
+ 		return (<span>{this.name}</span>);
 	}
 }
 
