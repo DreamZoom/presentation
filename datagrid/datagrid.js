@@ -5,37 +5,17 @@ class DataGrid extends extends React.Component {
 
     get columns() {
         let _columns = [{
-            title: 'Name',
+            title: '姓名',
             dataIndex: 'name',
             key: 'name',
-            render: text => <a href="#">{text}</a>
         }, {
-            title: 'Age',
+            title: '年龄',
             dataIndex: 'age',
-            key: 'age'
+            key: 'age',
         }, {
-            title: 'Address',
+            title: '住址',
             dataIndex: 'address',
-            key: 'address'
-        }, {
-            title: 'Action',
-            key: 'action',
-            render: (text, record) => (
-                <span>
-                    <a href="#">
-                        Action 一 {record.name}
-                    </a>
-                    < span className="ant-divider" />
-                    <a href="#">
-                        Delete
-                    </a>
-                    <span className="ant-divider" />
-                    <a href="#" className="ant-dropdown-link">
-                        More actions < Icon type="down" />
-                    </a>
-                    
-                </span >
-            )
+            key: 'address',
         }];
         return _columns;
     }
