@@ -1,7 +1,13 @@
 import React from 'react';
 import { Table, Icon } from 'antd';
 
-class DataGrid extends extends React.Component {
+class DataGrid extends React.Component {
+
+    state={
+        metadata:[],
+        apis:{},
+        data:[]
+    }
 
     get columns() {
         let _columns = [{
@@ -21,6 +27,7 @@ class DataGrid extends extends React.Component {
     }
 
     render() {
+        
         const dataSource = [{
             key: '1',
             name: '胡彦斌',
@@ -34,10 +41,12 @@ class DataGrid extends extends React.Component {
         }];
 
         return (
-            <span>
-                {this.name}
+            <div>
                 <Table dataSource={dataSource} columns={this.columns} />
-            </span>
+            </div>
         );
     }
 }
+
+
+export default DataGrid;
