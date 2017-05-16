@@ -26,6 +26,10 @@ class DataGrid extends React.Component {
         return _columns;
     }
 
+    get toolboxs(){
+        
+    }
+
     render() {
         
         const dataSource = [{
@@ -42,6 +46,9 @@ class DataGrid extends React.Component {
 
         return (
             <div>
+                <div className="toolbox">
+                    {this.toolboxs}
+                </div>
                 <Table dataSource={dataSource} columns={this.columns} />
             </div>
         );
