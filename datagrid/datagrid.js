@@ -4,8 +4,24 @@ import { Table, Icon, Button, Popconfirm } from 'antd';
 class DataGrid extends React.Component {
 
     state = {
-        metadata: [],
-        apis: {},
+        metadata: {
+            propertyType: "table",
+            propertyName: "users",
+            displayName: "用户",
+            propertys: [{
+                propertyType: "string",
+                propertyName: "name",
+                displayName: "姓名",
+            }, {
+                propertyType: "number",
+                propertyName: "age",
+                displayName: "年龄",
+            }, {
+                propertyType: "string",
+                propertyName: "address",
+                displayName: "地址",
+            }]
+        },
         data: [{
             key: '1',
             name: '胡彦斌',
@@ -20,19 +36,15 @@ class DataGrid extends React.Component {
     }
 
     get columns() {
-        let _columns = [{
-            title: '姓名',
-            dataIndex: 'name',
-            key: 'name',
-        }, {
-            title: '年龄',
-            dataIndex: 'age',
-            key: 'age',
-        }, {
-            title: '住址',
-            dataIndex: 'address',
-            key: 'address',
-        }, {
+
+        let _columns = this.state.metadata.propertys.map(function (item, index) {
+            return {
+                title: item.displayName || item.propertyName,
+                dataIndex: item.propertyName,
+                key: item.propertyName,
+            };
+        });
+        _columns.push({
             title: "操作",
             dataIndex: 'operation',
             key: 'operation',
@@ -58,7 +70,7 @@ class DataGrid extends React.Component {
                     </div>
                 );
             }
-        }];
+        });
         return _columns;
     }
 
